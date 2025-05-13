@@ -1,0 +1,28 @@
+@startuml frontend state changing
+skinparam WrapWidth 100
+hide empty description
+
+[*] --> nickname_entry
+
+nickname_entry --> create_game
+nickname_entry --> join_game
+
+state waiting_room {
+    state create_game : generate new game key and become leader
+    state join_game : use existing game key to join a game
+}
+
+create_game --> answer_question : click "start"
+join_game --> answer_question : game state\nswitched to join
+
+answer_question --> vote : everyone answered\nOR timer done
+
+vote --> vote_results : everyone voted\nOR timer done
+
+vote_results --> vote : leader continues\nAND questions remaining
+
+vote_results --> leaderboard : leader continues\nAND all questions voted
+
+leaderboard --> [*] : leader ends game
+
+@enduml

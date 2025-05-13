@@ -1,0 +1,41 @@
+@startuml game_state_changing
+
+participant HTTP_Handler
+participant GameService
+participant GameContext
+participant State
+
+--> HTTP_Handler++: POST '/game' (create the game)
+    HTTP_Handler --> GameService++:create_game(leader)
+    GameService-->GameService:initialize the game
+    GameService -->HTTP_Handler--:GameContext
+<-- HTTP_Handler--: return the game context to leader
+
+--> HTTP_Handler++: PUT '/games' (other player ping the game with join code)
+    HTTP_Handler --> GameService++:update_context(player)
+    GameService --> GameService: find the game with specified join code
+    GameService --> GameContext++: do_somthing(player)
+    GameContext --> State++: do_something(player)
+    State --> GameContext--: new player status
+    GameContext --> GameService--: player status
+    GameService --> HTTP_Handler--: player status
+<-- HTTP_Handler--: updated player status
+
+--> HTTP_Handler++: PUT '/game' (leader ping the game in joining phase)
+    HTTP_Handler --> GameService++:update_context(leader)
+    GameService --> GameService: find the game with specified join code
+    GameService --> GameContext++: do_somthing(leader)
+    GameContext --> State++: do_something(leader)
+    State --> GameContext: next_state()
+    GameContext --> State++: next_state()
+    State --> GameContext--: return the next state of current state
+    GameContext --> GameContext: change the current state
+    GameContext --> GameService--: player status
+    GameService --> HTTP_Handler--: player status
+<-- HTTP_Handler--: updated player status
+
+
+
+
+
+@enduml

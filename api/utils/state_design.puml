@@ -1,0 +1,28 @@
+@startuml state_design
+
+class GameContext{
+    - state:State
+    + next_state()->None
+}
+
+interface State{
+    + context:GameContext
+    + {abstract} next_state() -> State 
+    + {abstract} do_something() -> PlayerStatus
+}
+
+class JoiningState{}
+
+
+GameContext o-- State: aggregate
+GameContext --o State: aggregate
+
+State <|.. JoiningState: implement
+State <|.. QuestionSelectingState: implement
+State <|.. AnsweringState: implement
+
+
+
+
+
+@enduml

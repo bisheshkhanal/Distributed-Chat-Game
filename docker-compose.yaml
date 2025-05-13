@@ -1,0 +1,47 @@
+version: "3.0"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile_api
+    ports:
+      - "8080:8000"
+    volumes:
+      - "./api:/code/api"
+    environment:
+      - CONNECTION_STR=mongodb://user:pass@mongodb
+    depends_on:
+      - mongodb
+
+  proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile_proxy
+    ports:
+      - "8083:8083"
+    volumes:
+      - "./proxy:/code/proxy"
+    environment:
+      - SERVER_ADDR=["http://25.27.136.6:8080","http://25.36.152.12:8080","http://25.27.131.197:8080"]
+
+  mongodb:
+    image: mongodb/mongodb-community-server
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 30s
+      start_period: 10s
+      retries: 10
+
+    volumes:
+      - testDB:/data/db
+
+volumes:
+  testDB:

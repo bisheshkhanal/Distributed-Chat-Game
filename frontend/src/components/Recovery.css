@@ -1,0 +1,45 @@
+.recovery-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recovery-box {
+    background: radial-gradient(circle, #8B5A2B 10%, #704214 40%, #5A3310 70%, #3D1F0D 100%);
+    border: 4px solid black;
+    border-radius: 20px;
+    padding: 3vh 5vw;
+    font-size: min(2.5vw, 4vh);
+    color: white;
+    text-align: center;
+}
+
+.recovery-buttons {
+    display: flex;
+    justify-content: center;
+    gap: min(4vw, 6vh);
+    margin-top: min(3vw, 5vh);
+}
+
+.recovery-button {
+    padding: 1.5vh 4vw;
+    font-size: min(3vw, 4vh);
+    font-weight: bold;
+    background: linear-gradient(135deg, #D2B48C 10%, #A67B5B 90%);
+    border: 4px solid black;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+    color: black;
+}
+
+.recovery-button:hover {
+    background: linear-gradient(135deg, #A67B5B 10%, #704214 90%);
+    transform: scale(1.1);
+}

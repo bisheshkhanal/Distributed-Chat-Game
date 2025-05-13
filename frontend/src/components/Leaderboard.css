@@ -1,0 +1,87 @@
+.leaderboard-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+
+  background: radial-gradient(circle,#003973 10%,#005486 40%,#007EA3 70%,#00A9C2 100%);
+}
+
+.leaderboard-container h1 {
+  width: 100vw;
+  height: 15vh;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  font-size: min(5vw, 10vh);
+  color: white;
+  -webkit-text-stroke: min(2px,.2vh,.2vw) black;
+  margin: 2vh 0;
+}
+
+.leaderboard-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 21vw);
+  justify-items: center;
+  align-items: center;
+}
+
+.leaderboard-box {
+  width: 20vw;
+  height: 30vh;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.leaderboard-inner-square {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  font-weight: bold;
+  font-size: min(2.5vw, 4vh);
+  color: black;
+
+  border: 4px solid black;
+  border-radius: 10px;
+
+  background: linear-gradient(135deg,#06BCD4 10%,#008ba0 90%);
+}
+
+.leaderboard-buttons {
+  display: flex;
+  justify-content: center;
+  gap: min(5vw, 8vh);
+  margin-top: min(4vw, 6vh);
+}
+
+.leaderboard-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh 5vw;
+
+  font-size: min(4vw, 5vh);
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+
+  background: linear-gradient(135deg,#06BCD4 10%,#008ba0 90%);
+  border: 6px solid black;
+  border-radius: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.leaderboard-button:hover {
+  background: linear-gradient(135deg, #048899 10%, #00606e 90%);
+  transform: scale(1.1);
+}
+

@@ -1,0 +1,16 @@
+FROM python:3.12
+
+
+WORKDIR /code
+
+
+COPY ./proxy/requirements.txt /code/requirements.txt
+
+
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+
+COPY ./proxy /code/proxy
+
+
+CMD ["fastapi", "run", "proxy/main.py", "--port", "8083"]

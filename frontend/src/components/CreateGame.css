@@ -1,0 +1,173 @@
+.create-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+
+    background: radial-gradient(circle, #2D6187 10%, #1B4462 40%, #0F2A42 70%, #06152A 100%);
+    
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.create-left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.create-title {
+    font-size: min(4vw, 9vh);
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    -webkit-text-stroke: 2px black;
+}
+
+.create-code-box {
+    width: min(35vw, 61.25vh);
+    height: min(20vw, 35vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: min(5vw, 10vh);
+    font-style: italic;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+
+    border: 6px solid black;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #1E90FF 10%, #0074D9 90%);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+
+    margin-bottom: 5vh;
+}
+
+.create-start-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2vh 5vw;
+    
+    font-size: min(4vw, 5vh);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+
+    background: linear-gradient(135deg, #66B2FF 10%, #3380CC 90%);
+    border: 6px solid black;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.create-start-button:hover {
+    background: linear-gradient(135deg, #3380CC 10%, #005599 90%);
+    transform: scale(1.05);
+}
+
+.create-disabled-link {
+    pointer-events: none;
+    opacity: 0.5;
+}
+  
+.create-valid-start {
+    font-size: min(2.5vw, 2.5vh);
+    color: white;
+    text-align: center; 
+  }
+  
+.create-right-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 90vh;
+    box-sizing: border-box;
+
+    font-size: min(4vw, 5vh);
+    color: white;
+
+    border: 4px solid black;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #06101a 10%, #21689b 90%);
+    padding: 2vh;
+
+    margin-left: min(4vw, 5vh);
+    margin-right: min(4vw, 5vh);
+}
+
+.create-right-section h2 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.create-player-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.create-player-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: min(1vw, 1vh);
+
+    font-size: min(2.5vw, 2.5vh);
+    color: white;
+    
+    border: 1px solid rgb(212, 212, 212);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #1E90FF 10%, #0074D9 90%);
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+
+    margin-bottom: 1vh;
+}
+
+.create-status-dot {
+    width: min(1.5vw, 1.5vh);
+    height: min(1.5vw, 1.5vh);
+    border-radius: 50%;
+    border: 2px solid black;
+
+    margin-left: min(1vw, 1vh);
+}
+
+.create-back-link {
+    position: absolute;
+    top: min(2vw, 2vh);
+    left: min(2vw, 2vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: min(1vw, 1vh);
+    
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: min(1.5vw, 2vh);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: black;
+
+    background: linear-gradient(135deg, #66B2FF 10%, #3380CC 90%);
+    border: 6px solid black;
+    border-radius: 30px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.create-back-link:hover {
+    background: linear-gradient(135deg, #3380CC 10%, #005599 90%);
+    transform: scale(1.05);
+}

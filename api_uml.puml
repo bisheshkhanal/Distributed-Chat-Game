@@ -1,0 +1,32 @@
+@startuml text game API CRUD 
+
+abstract class BaseHandler{
+    + tag:str 
+    + route:str 
+    + app: FastAPI
+    {abstract} register_routes() -> None
+}
+
+class BaseService<T extends BaseModel>{
+    + collection:Collection
+    + create(model:T) -> str|None
+    + read_random() -> dict|None
+}
+
+class QuestionsHanlder{
+    - service:QuestionsService
+    + register_routes() -> None
+}
+
+class QuestionsService{
+    + get_random() -> QuesitonModel | None
+}
+
+QuestionsHanlder ..|> BaseHandler: implement
+
+QuestionsService --o QuestionsHanlder: aggregate
+
+BaseService <|-- QuestionsService: extend
+
+
+@enduml
