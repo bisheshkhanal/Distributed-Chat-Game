@@ -23,7 +23,7 @@ services:
     volumes:
       - "./proxy:/code/proxy"
     environment:
-      - SERVER_ADDR=["http://25.27.136.6:8080","http://25.36.152.12:8080","http://25.27.131.197:8080"]
+      - SERVER_ADDR=[]
 
   mongodb:
     image: mongodb/mongodb-community-server
